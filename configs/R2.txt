@@ -1,0 +1,25 @@
+hostname R2
+
+interface GigabitEthernet0/0/0
+ ip address 172.16.1.2 255.255.255.0
+ ipv6 address 2001:db8:acad:2::2/64
+ no shutdown
+
+interface GigabitEthernet0/0/1
+ ip address 192.168.1.2 255.255.255.0
+ ipv6 address 2001:db8:acad:1::2/64
+ no shutdown
+
+interface Loopback1
+ ip address 10.2.0.1 255.255.255.0
+ ipv6 address 2001:db8:acad:11::2/64
+
+interface Loopback2
+ ip address 209.165.200.193 255.255.255.224
+ ipv6 address 2001:db8:acad:210::1/64
+
+ip route 10.1.0.0 255.255.255.0 192.168.1.1
+ip route 209.165.200.224 255.255.255.224 192.168.1.1
+
+ipv6 route 2001:db8:acad:10::/64 2001:db8:acad:1::1
+ipv6 route 2001:db8:acad:209::/64 2001:db8:acad:1::1
