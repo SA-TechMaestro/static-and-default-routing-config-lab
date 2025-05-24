@@ -24,13 +24,17 @@ This lab demonstrates manual configuration of IPv4 and IPv6 static, default, and
 
 ## 📡 Key Configurations
 
-- IPv4 and IPv6 addresses applied to interfaces
-- Static route to peer’s loopback interface
-- Static and floating default routes using varying AD values
-- Verification using:
-  - `show ip route`
-  - `show ipv6 route`
-  - `traceroute` to remote loopbacks
+- Configured dual-stack (IPv4 + IPv6) addressing on:
+  - GigabitEthernet interfaces (G0/0/0, G0/0/1)
+  - Two loopbacks per router
+- Applied static routes for:
+  - Private loopback networks (10.x.x.x and 2001:db8:acad:10::/11::)
+  - Public address simulation ranges (209.165.200.x and matching IPv6)
+- Configured default and floating static routes for failover
+- Validated connectivity with:
+  - `ping`
+  - `traceroute`
+  - `show ip route` / `show ipv6 route`
 
 ---
 
