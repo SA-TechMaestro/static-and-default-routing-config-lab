@@ -1,0 +1,26 @@
+hostname S1 / S2
+
+no ip domain-lookup
+
+enable secret class
+
+line console 0
+ password cisco
+ login
+ exit
+
+line vty 0 4
+ password cisco
+ login
+ exit
+
+service password-encryption
+
+banner motd #WARNING: Unauthorized access is prohibited!#
+
+! Shutdown all unused interfaces (typical for a lab)
+interface range F0/2 - 3, F0/6 - 24, G0/1 - 2
+ shutdown
+exit
+
+copy running-config startup-config
