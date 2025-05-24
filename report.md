@@ -15,21 +15,25 @@ The lab topology involved two routers (R1 and R2), connected through a switch, w
 ---
 
 ## 🧱 Network Topology Summary
+
+- **R1 and R2** each have:
+  - Two GigabitEthernet interfaces:
+    - `G0/0/0` (internal network – 172.16.1.0/24)
+    - `G0/0/1` (router-to-router link – 192.168.1.0/24)
+  - Two loopback interfaces:
+    - Loopback1: private address range (10.x.x.x / 2001:db8:acad:10::/11::)
+    - Loopback2: public-style address range (209.165.200.x / 2001:db8:acad:209::/210::)
+
+- IPv4 and IPv6 were configured on all interfaces (dual-stack)
+
+- Static and default routes were used to enable full connectivity between loopbacks
+
 <details>
 <summary>📸 View: Network Topology Diagram</summary>
 
 ![Network Topology Diagram](https://github.com/user-attachments/assets/de705c1d-d079-41c5-afdf-7f5581a82d46)
 
 </details>
-
-- **R1 and R2** both have:
-  - A directly connected GigabitEthernet interface
-  - One loopback interface for simulation
-- Static and default routes configured for:
-  - Remote loopback reachability
-  - IPv4 and IPv6
-- Administrative distance used to prioritize failover routes
-
 
 
 ---
