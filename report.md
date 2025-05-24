@@ -15,6 +15,12 @@ The lab topology involved two routers (R1 and R2), connected through a switch, w
 ---
 
 ## 🧱 Network Topology Summary
+<details>
+<summary>📸 View: Network Topology Diagram</summary>
+
+![Network Topology Diagram](https://github.com/user-attachments/assets/de705c1d-d079-41c5-afdf-7f5581a82d46)
+
+</details>
 
 - **R1 and R2** both have:
   - A directly connected GigabitEthernet interface
@@ -24,7 +30,7 @@ The lab topology involved two routers (R1 and R2), connected through a switch, w
   - IPv4 and IPv6
 - Administrative distance used to prioritize failover routes
 
-> *(Optional: Include a screenshot of the topology diagram if you have one)*
+
 
 ---
 
@@ -57,6 +63,13 @@ interface Loopback0
 ip route 10.2.0.0 255.255.255.0 192.168.1.2
 ipv6 route 2001:db8:acad:20::/64 2001:db8:acad:1::2
 ```
+<details>
+<summary>📸 View: IPv4 Route Table – R1</summary>
+
+![IPv4 Route Table – R1](./images/show-ip-route-r1.png)
+
+</details>
+
 ### 🔸 On R2
 ```
 ip route 10.1.0.0 255.255.255.0 192.168.1.1
@@ -76,10 +89,44 @@ ip route 0.0.0.0 0.0.0.0 10.1.0.1 5
 ```
 ipv6 route ::/0 2001:db8:acad:1::2
 ```
-💡 Floating routes are backup routes that only become active when the primary route fails. This was demonstrated by adjusting AD values and testing failover.
+##### 💡 Floating routes are backup routes that only become active when the primary route fails. This was demonstrated by adjusting AD values and testing failover.
+<details>
+<summary>📸 View: Floating Static Route Table</summary>
+
+![Floating Static Route Table](./images/floating-route-test.png)
+
+</details>
+
+<details>
+<summary>📸 View: Floating Route Failover – Traceroute</summary>
+
+![Floating Route Failover – Traceroute](./images/floating-route-test2.png)
+
+</details>
 
 ---
 ## 🔍 Verification & Testing
+<details>
+<summary>📸 View: IPv6 Route Table – R2</summary>
+
+![IPv6 Route Table – R2](./images/show-ipv6-route-r2.png)
+
+</details>
+
+<details>
+<summary>📸 View: Traceroute to IPv4 Loopback</summary>
+
+![Traceroute to IPv4 Loopback](./images/trace-ipv4-loopback-r1.png)
+
+</details>
+
+<details>
+<summary>📸 View: Traceroute to IPv6 Loopback</summary>
+
+![Traceroute to IPv6 Loopback](./images/trace-ipv6-loopback-r2.png)
+
+</details>
+
 - Used ping and traceroute to verify connectivity between loopback interfaces
 - Verified active routes using:
   - show ip route
@@ -107,3 +154,4 @@ ipv6 route ::/0 2001:db8:acad:1::2
 | `/configs/`             | Device configuration files         |
 | `/images/`              | Screenshots of route tables/tests  |
 | `15.6.2 Lab - ... .odt` | Original lab submission (optional) |
+
