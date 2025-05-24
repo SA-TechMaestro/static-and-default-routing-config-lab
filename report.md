@@ -38,30 +38,53 @@ The lab topology involved two routers (R1 and R2), connected through a switch, w
 
 ### 🔹 R1 Interface Config
 ```bash
-interface GigabitEthernet0/0
+interface GigabitEthernet0/0/0
+ ip address 172.16.1.1 255.255.255.0
+ ipv6 address 2001:db8:acad:2::1/64
+
+interface GigabitEthernet0/0/1
  ip address 192.168.1.1 255.255.255.0
  ipv6 address 2001:db8:acad:1::1/64
 
-interface Loopback0
+interface Loopback1
  ip address 10.1.0.1 255.255.255.0
  ipv6 address 2001:db8:acad:10::1/64
+
+interface Loopback2
+ ip address 209.165.200.225 255.255.255.224
+ ipv6 address 2001:db8:acad:209::1/64
+
 ```
 ### 🔹 R2 Interface Config
 ```bash
-interface GigabitEthernet0/0
+interface GigabitEthernet0/0/0
+ ip address 172.16.1.2 255.255.255.0
+ ipv6 address 2001:db8:acad:2::2/64
+
+interface GigabitEthernet0/0/1
  ip address 192.168.1.2 255.255.255.0
  ipv6 address 2001:db8:acad:1::2/64
 
-interface Loopback0
+interface Loopback1
  ip address 10.2.0.1 255.255.255.0
- ipv6 address 2001:db8:acad:20::1/64
+ ipv6 address 2001:db8:acad:11::2/64
+
+interface Loopback2
+ ip address 209.165.200.193 255.255.255.224
+ ipv6 address 2001:db8:acad:210::1/64
+
 ```
 ---
 ## 🚦 Static Route Configuration
+
 ### 🔸 On R1
-```
+```bash
 ip route 10.2.0.0 255.255.255.0 192.168.1.2
-ipv6 route 2001:db8:acad:20::/64 2001:db8:acad:1::2
+ip route 209.165.200.192 255.255.255.224 192.168.1.2
+
+ipv6 route 2001:db8:acad:11::/64 2001:db8:acad:1::2
+ipv6 route 2001:db8:acad:210::/64 2001:db8:acad:1::2
+
 ```
 <details>
 <summary>📸 View: IPv4 Route Table – R1</summary>
@@ -73,7 +96,11 @@ ipv6 route 2001:db8:acad:20::/64 2001:db8:acad:1::2
 ### 🔸 On R2
 ```
 ip route 10.1.0.0 255.255.255.0 192.168.1.1
+ip route 209.165.200.224 255.255.255.224 192.168.1.1
+
 ipv6 route 2001:db8:acad:10::/64 2001:db8:acad:1::1
+ipv6 route 2001:db8:acad:209::/64 2001:db8:acad:1::1
+
 ```
 ---
 ## 🧩 Default & Floating Static Routes
