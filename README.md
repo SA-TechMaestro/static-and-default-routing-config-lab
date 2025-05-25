@@ -52,6 +52,6 @@ This lab demonstrates manual configuration of IPv4 and IPv6 static, default, and
 | File                      | Description                               |
 |---------------------------|-------------------------------------------|
 | `report.md`               | Full lab process and results              |
-| `configs/`                | Config files from R1 and R2               |
+| `configs/`                | Basic Router/Switch Config files          |
 | `images/`                 | Screenshots of routing tables & traceouts |
 | `lab-original.odt`        | Original lab submission file              |
