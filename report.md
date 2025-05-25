@@ -93,7 +93,7 @@ ipv6 route 2001:db8:acad:210::/64 2001:db8:acad:1::2
 <details>
 <summary>📸 View: IPv4 Route Table – R1</summary>
 
-![IPv4 Route Table – R1](./images/show-ip-route-r1.png)
+<img src="./images/show-ip-route-r1.png" alt="Route Table – R1" width="700">
 
 </details>
 
@@ -124,15 +124,13 @@ ipv6 route ::/0 2001:db8:acad:1::2
 <details>
 <summary>📸 View: Floating Static Route Table</summary>
 
-![Floating Static Route Table](./images/floating-route-test.png)
-
+<img src="./images/floating-route-test.png" alt="Route Table – R1" width="700">
 </details>
 
 <details>
 <summary>📸 View: Floating Route Failover – Traceroute</summary>
 
-![Floating Route Failover – Traceroute](./images/floating-route-test2.png)
-
+<img src="./images/floating-route-test2.png" alt="Route Table – R1" width="700">
 </details>
 
 ---
@@ -140,22 +138,19 @@ ipv6 route ::/0 2001:db8:acad:1::2
 <details>
 <summary>📸 View: IPv6 Route Table – R2</summary>
 
-![IPv6 Route Table – R2](./images/show-ipv6-route-r2.png)
-
+<img src="./images/show-ipv6-route-r2.png" alt="Route Table – R1" width="700">
 </details>
 
 <details>
 <summary>📸 View: Traceroute to IPv4 Loopback</summary>
 
-![Traceroute to IPv4 Loopback](./images/trace-ipv4-loopback-r1.png)
-
+<img src="./images/trace-ipv4-loopback-r1.png" alt="Route Table – R1" width="700">
 </details>
 
 <details>
 <summary>📸 View: Traceroute to IPv6 Loopback</summary>
 
-![Traceroute to IPv6 Loopback](./images/trace-ipv6-loopback-r2.png)
-
+<img src="./images/trace-ipv6-loopback-r2.png" alt="Route Table – R1" width="700">
 </details>
 
 - Used ping and traceroute to verify connectivity between loopback interfaces
